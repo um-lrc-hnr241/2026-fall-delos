@@ -1,10 +1,12 @@
 :root {
-  --text: #1f2933;
-  --muted: #52606d;
-  --background: #fdfcf9;
-  --accent: #1d5fa8;
-  --border: #d9d4c7;
-  --max-width: 46rem;
+  color-scheme: dark;
+  --text: #f4f5f6;
+  --muted: #d4d5d9;
+  --background: #080b0d;
+  --surface: #111719;
+  --accent: #42c5e3;
+  --border: #3a4549;
+  --max-width: 72rem;
 }
 
 *,
@@ -15,9 +17,9 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: "Arial Narrow", "Roboto Condensed", "Segoe UI", sans-serif;
   font-size: 1.125rem;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--text);
   background: var(--background);
 }
@@ -27,16 +29,17 @@ main,
 .site-footer {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1.5rem 1.25rem;
+  padding: 1.5rem 1.5rem;
 }
 
 .site-header {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1rem 2rem;
   border-bottom: 1px solid var(--border);
+  background: #080b0d;
 }
 
 .site-title {
@@ -52,30 +55,169 @@ main,
 nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 0.35rem 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.35rem 0;
+  color: var(--muted);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.25em;
+}
+
+nav a[aria-current="page"] {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 a {
   color: var(--accent);
 }
 
+.site-title {
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+}
+
+.site-title a {
+  color: var(--text);
+}
+
+.site-title span,
+.eyebrow {
+  color: var(--accent);
+}
+
 a:focus-visible {
   outline: 3px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 h1 {
-  font-size: 2.25rem;
+  max-width: 16ch;
+  margin: 0.15em 0 0.35em;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+}
+
+h2 {
   line-height: 1.2;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  margin: 0 -1.5rem 2rem;
+  padding: clamp(2rem, 7vw, 5rem) clamp(1.5rem, 7vw, 6rem);
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(90deg, rgba(8, 11, 13, 0.96), rgba(8, 11, 13, 0.66));
+}
+
+.cover-image {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.38;
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lead {
+  max-width: 42rem;
+  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+  color: var(--muted);
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-weight: 700;
+}
+
+.content-section {
+  max-width: 54rem;
+  padding: 2rem 0;
+}
+
+.content-section h2,
+.page-content h2 {
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.feature-card {
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.feature-card h2 {
+  margin: 0.25rem 0;
+  font-size: 1.35rem;
+}
+
+.feature-card p:last-child {
+  margin-bottom: 0;
+}
+
+.page-heading {
+  padding: 2rem 0 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-heading h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.page-content {
+  max-width: 54rem;
+  padding: 1rem 0 3rem;
+}
+
+.page-content li {
+  margin-bottom: 0.55rem;
+}
+
+.note {
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--accent);
+  background: var(--surface);
+}
+
+.reference-list li {
+  padding-left: 0.25rem;
 }
 
 img,
 video {
   max-width: 100%;
   height: auto;
+}
+
+.cover-image {
+  max-width: none;
+  height: 100%;
 }
 
 .site-footer {
