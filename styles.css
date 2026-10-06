@@ -5,6 +5,7 @@
   --background: #080b0d;
   --surface: #111719;
   --accent: #169EC0;
+  --accent-text: #58d8f4;
   --border: #3a4549;
   --max-width: 72rem;
 }
@@ -70,12 +71,12 @@ nav a {
 }
 
 nav a[aria-current="page"] {
-  color: var(--accent);
+  color: var(--accent-text);
   text-decoration: underline;
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .site-title {
@@ -89,7 +90,7 @@ a {
 
 .site-title span,
 .eyebrow {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 a:focus-visible {
